@@ -33,7 +33,7 @@ function _captureProxy(e) {
     _captureRecursion = true;
     if (document.captureElement) {
         document.captureElement.dispatchEvent(newEv);
-    } else {
+    } else if (_elementForUnflushedEvents) {
         _elementForUnflushedEvents.dispatchEvent(newEv);
     }
     _captureRecursion = false;
